@@ -1,17 +1,17 @@
 FROM golang:alpine
 
 ENV PACKAGES="wget unzip git pkgconfig libvirt-dev gcc musl-dev nano cdrkit xz qemu-img openssh"
-ENV TERRAFORM_VER=0.11.7 \
+ENV TERRAFORM_VER=0.11.11 \
     DUMB_INIT_VER=1.2.1 \
-    LIBVIRT_GO_VER=v4.2.0 \
-    TERRAFORM_PROVIDER_LIBVIRT_VER=v0.3
+    LIBVIRT_GO_VER=v5.1.0 \
+    TERRAFORM_PROVIDER_LIBVIRT_VER=v0.5.1
 
 RUN apk add --no-cache $PACKAGES 2>/dev/null || \
     yum install -y $PACKAGES 2>/dev/null || \
     (apt update && apt install -y $PACKAGES) 2>/dev/null || \
     pacman -Syu $PACKAGES --noconfirm 2>/dev/null
 
-RUN wget -qO /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_${DUMB_INIT_VER}_amd64 \
+RUN wget -qO /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VER}/dumb-init_${DUMB_INIT_VER}_amd64 \
     && chmod +x /usr/local/bin/dumb-init
 
 RUN wget -qO /tmp/tf.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VER}/terraform_${TERRAFORM_VER}_linux_amd64.zip \
