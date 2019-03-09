@@ -1,6 +1,6 @@
 FROM golang:alpine
 
-ENV PACKAGES="wget unzip git pkgconfig libvirt-dev gcc musl-dev nano cdrkit xz qemu-img"
+ENV PACKAGES="wget unzip git pkgconfig libvirt-dev gcc musl-dev nano cdrkit xz qemu-img openssh"
 ENV TERRAFORM_VER=0.11.7 \
     DUMB_INIT_VER=1.2.1 \
     LIBVIRT_GO_VER=v4.2.0 \
