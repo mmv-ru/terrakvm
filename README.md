@@ -9,3 +9,7 @@ Mount a path containing your .tf files, and also your libvirt socket at /libvirt
 `docker run --name terraform -it -v /var/run/libvirt/libvirt-sock:/libvirt-sock -v /path/to/tf/files:/terraform udkyo/terrakvm sh`
 
 Optionally, mount paths to pool storage locations etc if you plan to manipulate files manually.
+
+to simlify use terraforn CLI
+
+    ln -s DockerTerraformRun.sh ~/.local/bin/terraform
