@@ -8,8 +8,8 @@ while [[ $PWD != / ]] ; do
 done
 ROOT="$PWD"
 RELPATH=$(realpath --relative-to="$ROOT" "$CURRENT")
-echo context: $ROOT
-echo relpath: $RELPATH
+#echo context: $ROOT
+#echo relpath: $RELPATH
 
 sudo docker run --privileged -it --rm \
       -v /var/run/libvirt/libvirt-sock:/libvirt-sock \
